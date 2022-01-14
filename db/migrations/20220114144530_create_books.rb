@@ -1,0 +1,13 @@
+Hanami::Model.migration do
+  change do
+    create_table :books do
+      primary_key :id
+
+      foreign_key :author_id, :authors, on_delete: :cascade
+
+      column :title,      String,   null: false
+      column :created_at, DateTime, null: false
+      column :updated_at, DateTime, null: false
+    end
+  end
+end
